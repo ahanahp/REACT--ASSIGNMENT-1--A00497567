@@ -1,43 +1,45 @@
 # About Me & My Town
 
-A small React (Vite) app with two views: **About Me** and **My Town**. My Town shows the
-current temperature from the [Open-Meteo API](https://open-meteo.com/) (no API key needed),
-an image that matches the temperature, and a °C / °F toggle.
+A small React web app with two pages: **About Me** and **My Town**. The My Town page shows the live temperature for Halifax, Nova Scotia, with a picture that matches the weather and a button to switch between °C and °F.
 
-## Features
-- Two views with working navigation (React state, no router needed)
-- Weather fetched with `fetch` inside `useEffect`
-- Conditional image: ≤ 10 °C → `cold.png`, 11–19 °C → `mild.png`, ≥ 20 °C → `sunny.png`
-- "Change to °F" / "Change to °C" button (the image is always chosen from the °C value)
-- Loading and error states
+**Live site:** https://stupendous-piroshki-66cafb.netlify.app
+**GitHub repo:** https://github.com/ahanahp/REACT--ASSIGNMENT-1--A00497567
 
-## Run locally
-```bash
-npm install
-npm run dev
-```
+## What the app does
+- **Two views with navigation:** the tabs at the top switch between About Me and My Town without reloading the page.
+- **Live weather:** the app fetches the current temperature from the [Open-Meteo API](https://open-meteo.com/), which is free and needs no API key.
+- **Image based on temperature:**
+  - 10°C or below shows `cold.png`
+  - 11 to 19°C shows `mild.png`
+  - 20°C or above shows `sunny.png`
+- **Temperature toggle:** the "Change to °F" button converts the temperature, and the same button switches it back to °C. The image is always chosen using the °C value, so it doesn't change when the unit changes.
+- **Loading and error messages:** the page says "Loading weather…" while waiting and shows a message if the weather can't be loaded.
 
-## Customize
-- Edit `src/config.js` with your name, bio, town, and the town's latitude/longitude.
-- The weather images (`cold.png`, `mild.png`, `sunny.png`) live in `public/images/`; swap them to change the look.
-
-## Deploy (Netlify example)
-1. Push this folder to GitHub.
-2. On netlify.com choose **Add new site → Import from Git**.
-3. Build command `npm run build`, publish directory `dist`.
-Vercel works the same way. Put your live URL here: `https://YOUR-SITE-URL`
+## Technologies
+React, Vite, JavaScript, CSS, and the Open-Meteo API. The site is hosted on Netlify and the code is stored on GitHub.
 
 ## Project structure
 ```
 src/
-  App.jsx          navigation + page switching
-  config.js        personal and town details
-  pages/About.jsx
-  pages/MyTown.jsx weather fetch, conditional image, unit toggle
-  styles.css
+  App.jsx            navigation and page switching
+  config.js          my details and my town's details
+  main.jsx           app entry point
+  styles.css         styling
+  pages/
+    About.jsx        About Me page
+    MyTown.jsx       weather fetch, image logic, unit toggle
+public/images/       cold.png, mild.png, sunny.png
 ```
 
-## AI disclosure
-I used Claude (Anthropic) to generate the initial project scaffold, the React components
-and the CSS. I then reviewed the code, replaced the placeholder content with my own
-details and images, and deployed it myself. <!-- Edit this to describe what YOU actually did -->
+## How to run it locally
+1. Install [Node.js](https://nodejs.org).
+2. Download or clone this repository.
+3. In the project folder, run:
+```
+   npm install
+   npm run dev
+```
+4. Open the address shown in the terminal, usually http://localhost:5173.
+
+## Deployment
+The site is deployed on Netlify and connected to this GitHub repository. Netlify rebuilds it automatically each time I push a change. Build command: `npm run build`. Publish directory: `dist`.
