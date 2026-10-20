@@ -43,3 +43,6 @@ public/images/       cold.png, mild.png, sunny.png
 
 ## Deployment
 The site is deployed on Netlify and connected to this GitHub repository. Netlify rebuilds it automatically each time I push a change. Build command: `npm run build`. Publish directory: `dist`.
+
+## AI Disclosure
+AI assistance was used during the development of this assignment. Claude (Anthropic) was used to help with understanding React concepts, troubleshooting code, and improving the implementation. All generated suggestions were reviewed, tested, and adapted as needed to ensure the final application works as intended and meets the assignment requirements.
